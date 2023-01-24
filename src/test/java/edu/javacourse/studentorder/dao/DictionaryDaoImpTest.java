@@ -8,4 +8,5 @@ public class DictionaryDaoImpTest {
     public void testExample() {
         System.out.println("TEST");
     }
+
 }
