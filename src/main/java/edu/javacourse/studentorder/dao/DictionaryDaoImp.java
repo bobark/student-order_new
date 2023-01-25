@@ -18,13 +18,9 @@ public class DictionaryDaoImp implements DictionaryDao {
     private static final String GET_REGISTER = "SELECT * from jc_register_office  WHERE r_office_area_id = ?";
     public static final String GET_AREA = "SELECT * from jc_country_struct WHERE area_id like ? and area_id<>?";
 
-    //TODO refactoring - make one method
+
     private Connection getConnection() throws SQLException {
-        Connection con = DriverManager.getConnection(
-                Config.getProperty(Config.DB_URL),
-                Config.getProperty(Config.DB_LOGIN),
-                Config.getProperty(Config.DB_PASSWORD));
-        return con;
+        return ConnectionBuilder.getConnection();
     }
 
     public List<Street> findStreet(String pattern) throws DaoException {
